@@ -6,8 +6,6 @@ function ChatFooter({socket}){
         socket.emit('typingStatus', `${localStorage.getItem('username')} is typing...`);
     }
 
-    
-
     function handleSendBtn(e){
         e.preventDefault();
         if(localStorage.getItem('username') && message.trim()){
@@ -20,7 +18,6 @@ function ChatFooter({socket}){
         }
         setMessage('')
     }
-
 
     return(
         <div className="chat_footer">
