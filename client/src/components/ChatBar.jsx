@@ -9,6 +9,7 @@ function ChatBar({socket}){
       }, [socket, userCount]);
 
     return (
+        <div className="menu">
         <div className={styles.chatbar}>
             <h4 className={styles.header}>Active Users</h4>
             <div className={styles.user}>
@@ -19,6 +20,7 @@ function ChatBar({socket}){
             <div className={styles.userCount}>
                 <span>Active users : {userCount.length}</span>
             </div>
+        </div>
         </div>
     );
 }

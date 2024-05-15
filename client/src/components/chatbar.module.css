@@ -1,19 +1,16 @@
-.chatbar{
-    background-color: rgba(30, 30, 30, 1);
-    height: 0;
-    color: white;
-}
-@media screen and (max-width: 600px){
-    .chatbar{
-        display: none;
-    }
-
-}
 ::-webkit-scrollbar {
     display: none;
 }
+
+.chatbar{
+    background: rgb(14, 14, 14);
+    height: 100%;
+    color: rgb(227, 227, 227);
+    height: 100vh;
+    overflow: hidden;
+}
 .header{
-    color:#fff;
+    color:#6e1bc7;
     text-align: center;
     margin-top: 20px;
     font-size: 25px;
@@ -31,12 +28,15 @@
 .user p{
     margin-bottom: 10px;
     border: 1px solid rgba(30, 30, 30, 1);
-    background: #000;
+    background: #521091;
     padding: 10px 20px;
     border-radius: 10px;
 }
 
 .userCount{
-    color: aquamarine;
-    padding: 20px 50px;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
 }
+
+
+

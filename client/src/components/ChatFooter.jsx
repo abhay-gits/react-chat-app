@@ -1,15 +1,9 @@
 import { useState } from "react";
 function ChatFooter({socket}){
     const [message,setMessage] = useState('');
-    /* const [typingTimeout, setTypingTimeout] = useState(null); */
 
     const handleKeyDown = () => {
         socket.emit('typingStatus', `${localStorage.getItem('username')} is typing...`);
-       /*  if (typingTimeout) clearTimeout(typingTimeout);
-        setTypingTimeout(setTimeout(() => {
-            socket.emit('typingStatus', "");
-        }, 1000));  */
-    
     }
 
     
@@ -39,7 +33,7 @@ function ChatFooter({socket}){
                 onKeyDown={handleKeyDown}
                 
                 />
-                <button /* onKeyUp={handleKeyUp} */ className="sendBtn">Send</button>
+                <button className="sendBtn">Send</button>
             </form>
         </div>
     )

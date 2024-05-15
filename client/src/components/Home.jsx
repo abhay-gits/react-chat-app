@@ -18,7 +18,7 @@ function Home({socket}) {
             <div className={styles.container}>
                 <form className={styles.form} onSubmit={handleClick}>
                     <input type="name" id="username" className={styles.input} placeholder="Enter Username"
-                        value={username} onChange={(e) => setUsername(e.target.value) }
+                        value={username} onChange={(e) => setUsername(e.target.value) } maxLength={20} required
                     />
                     <button className={styles.submitBtn}>Enter Chat</button>
                 </form>
