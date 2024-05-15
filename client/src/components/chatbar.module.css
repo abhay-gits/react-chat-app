@@ -1,6 +1,6 @@
 .chatbar{
     background-color: rgba(30, 30, 30, 1);
-    height: 100vh;
+    height: 0;
     color: white;
 }
 @media screen and (max-width: 600px){

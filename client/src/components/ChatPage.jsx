@@ -6,15 +6,21 @@ import ChatFooter from "./ChatFooter";
 function ChatPage({socket}){
 
     const[messages,setMessages] = useState([]);
+    const[user,setUser] = useState([]);
     const[typingStatus,setTypingStatus] = useState('');
     const lastMessageRef = useRef(null);
-
 
     useEffect(()=>{
         socket.on('messageResponse',(data)=>{
             setMessages([...messages,data])
         })
     },[socket,messages])
+
+    useEffect(()=>{
+        socket.on('newUserJoined',(data)=>{
+            setUser([...user,data]);
+        })
+    },[socket])
 
     useEffect(()=>{
         lastMessageRef.current?.scrollIntoView({behaviour:'smooth'})
@@ -30,6 +36,7 @@ function ChatPage({socket}){
             <ChatBar socket={socket}></ChatBar>
             <div className="chat_main">
             <ChatBody
+            user={user}
              messages={messages}
             lastMessageRef={lastMessageRef} 
             typingStatus={typingStatus}>

@@ -1,12 +1,14 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-function ChatBody({ messages, lastMessageRef, typingStatus }) {
+function ChatBody({ messages, lastMessageRef, typingStatus,user }) {
+   
     const navigate = useNavigate();
     function handleLeaveChat() {
         localStorage.removeItem('username');
-        /* socket.emit('userLeft',{username,socketID:socket.id}) */
         navigate('/')
         window.location.reload();
     }
+
     return (
         <>
             <header className="header">
@@ -16,8 +18,8 @@ function ChatBody({ messages, lastMessageRef, typingStatus }) {
             <div className="message_status">
                 <p style={{paddingLeft:'10px'}}>💬 {typingStatus}</p>
             </div>
-            <div className="message_container">
-
+            <div className="message_container">           
+                
                 {messages.map((message) =>
                     message.name === localStorage.getItem('username') ? (
                         <div className="messageBody send" key={message.id}>
@@ -27,8 +29,9 @@ function ChatBody({ messages, lastMessageRef, typingStatus }) {
                             </div>
                         </div>
                     ) : (
-
+                        
                         < div className="messageBody recieve" key={message.id} >
+                            
                             <p>{message.name}</p>
                             <div className="message_recipient">
                                 <p>{message.text}</p>
