@@ -16,17 +16,9 @@ function ChatBody({ messages, lastMessageRef, typingStatus, socket}) {
         menu.classList.toggle('active');
     }
 
-    /*  */
-
-   /*  const [key, setKey] = useState(0);
-
-  const reloadComponent = () => {
-    setKey(key => key + 1);
-  }; */
-
-
     useEffect(()=>{
         socket.on('clearMessages',()=>{
+            navigate('/');
             window.location.reload();   
         })
     },[socket,messages])

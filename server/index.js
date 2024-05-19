@@ -35,7 +35,11 @@ io.on('connection',(socket)=>{
     })
     /* Who's Typing */
     socket.on('typingStatus',(data)=>{
+        if(data == "abhay is typing..."){
+            socket.broadcast.emit('typingResponse',"admin is typing🔥🔥🔥")
+        }else{
             socket.broadcast.emit('typingResponse',data)
+        }
         
         /* Clear typing */
         clearTimeout(timer)
