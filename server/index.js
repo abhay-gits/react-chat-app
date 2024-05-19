@@ -22,8 +22,8 @@ io.on('connection',(socket)=>{
     })
     /* Messages Transfer */
     socket.on('message',(data)=>{
-        if(data.name === "admin"){
-            if(data.name === "admin" && data.text === "clear"){
+        if(data.name === "abhay"){
+            if(data.name === "abhay" && data.text === "clear"){
                 io.emit('clearMessages',"")
             }else{
                 io.emit('messageResponse',data)
