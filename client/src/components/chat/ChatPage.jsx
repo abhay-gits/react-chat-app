@@ -36,6 +36,7 @@ function ChatPage({socket}){
             <ChatBar socket={socket}></ChatBar>
             <div className="chat_main">
             <ChatBody
+            socket={socket}
             user={user}
              messages={messages}
             lastMessageRef={lastMessageRef} 

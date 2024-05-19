@@ -1,4 +1,5 @@
 let users = []
+let pattern = /abhay/;
 const express = require('express');
 const app = express();
 const PORT = 4000;
@@ -14,17 +15,28 @@ cors : {
 let timer = 0;
 /* Connection Started */
 io.on('connection',(socket)=>{
+    /* Handle normal users */
     socket.on('newUser',(data)=>{
-        users.push(data);
-        io.emit('userCounter',users)
+            users.push(data);
+            io.emit('userCounter',users)
     })
     /* Messages Transfer */
     socket.on('message',(data)=>{
-        io.emit('messageResponse',data)
+        if(data.name === "admin"){
+            if(data.name === "admin" && data.text === "clear"){
+                io.emit('clearMessages',"")
+            }else{
+                io.emit('messageResponse',data)
+            }
+        }
+        else{
+            io.emit('messageResponse',data)
+        }
     })
     /* Who's Typing */
     socket.on('typingStatus',(data)=>{
-        socket.broadcast.emit('typingResponse',data)
+            socket.broadcast.emit('typingResponse',data)
+        
         /* Clear typing */
         clearTimeout(timer)
         timer = setTimeout(()=>{

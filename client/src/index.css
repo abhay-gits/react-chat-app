@@ -65,14 +65,14 @@ header{
 .messageBody>p{
   color: rgb(255, 166, 0);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 3px;
 }
 
 .message>p{
-  font-weight: 100;
+  font-weight: 0;
   word-wrap: break-word;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .sender_name{
